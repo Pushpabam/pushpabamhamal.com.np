@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pushpa Bam Thakuri - Classic Talks</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+        
+        :root {
+            --primary-color: #138808;
+            --secondary-color: #FF9933;
+            --dark-color: #333;
+            --light-color: #f4f4f4;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            scroll-behavior: smooth;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--secondary-color), #FFFFFF, var(--primary-color));
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .search-container {
+            margin-top: 15px;
+            display: flex;
+            width: 80%;
+            max-width: 500px;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 25px 0 0 25px;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .search-button {
+            padding: 10px 20px;
+            background: var(--dark-color);
+            color: white;
+            border: none;
+            border-radius: 0 25px 25px 0;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .search-button:hover {
+            background: #555;
+        }
+        
+        nav {
+            background: var(--dark-color);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background: var(--primary-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .profile-img {
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .social-links a:hover {
+            background: #0e7006;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .social-links a i {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+        
+        .youtube-highlight {
+            color: #FF0000;
+            font-weight: bold;
+        }
+        
+        footer {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .header-content h1 {
+                font-size: 24px;
+            }
+            
+            .search-container {
+                width: 90%;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>पुष्पा बम ठकुरी <span class="youtube-highlight">(Classic Talks)</span></h1>
+            <p>आधिकारिक वेबसाइट | pushpabamhaml.com</p>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="वेबसाइटमा खोज्नुहोस्...">
+                <button class="search-button"><i class="fas fa-search"></i> खोज</button>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about"><i class="fas fa-user"></i> मेरो बारेमा</a></li>
+            <li><a href="#work"><i class="fas fa-briefcase"></i> मेरो कार्य</a></li>
+            <li><a href="#youtube"><i class="fab fa-youtube"></i> Classic Talks</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> सम्पर्क</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="about" class="section">
+            <img src="pushpa-profile.jpg" alt="Pushpa Bam Thakuri" class="profile-img">
+            <h2><i class="fas fa-user"></i> मेरो बारेमा</h2>
+            <p>नमस्ते! म पुष्पा बम ठकुरी, हुम्ला जिल्लाको खार्पुनाथ-४ का बासिन्दा हुँ। म वित्तीय क्षेत्रमा पेशेवर रूपमा संलग्न छु र सामाजिक सञ्जाल मार्फत विभिन्न सामाजिक कार्यहरूमा सहभागी हुने गर्छु। मेरो YouTube च्यानल "Classic Talks" मा म विभिन्न विषयहरूमा छलफल गर्छु।</p>
+        </section>
+        
+        <section id="work" class="section">
+            <h2><i class="fas fa-briefcase"></i> मेरो कार्यहरू</h2>
+            <p>मैले विभिन्न सामाजिक माध्यमहरूमा गतिविधिहरू संचालन गरिरहेको छु:</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> वित्तीय साक्षरता कार्यक्रमहरू</li>
+                <li><i class="fas fa-check-circle"></i> महिला सशक्तिकरण अभियान</li>
+                <li><i class="fas fa-check-circle"></i> सामाजिक सञ्जाल मार्फत जागरूकता</li>
+                <li><i class="fas fa-check-circle"></i> YouTube मा "Classic Talks" च्यानल संचालन</li>
+            </ul>
+        </section>
+        
+        <section id="youtube" class="section">
+            <h2><i class="fab fa-youtube"></i> Classic Talks YouTube</h2>
+            <p>मेरो YouTube च्यानल "Classic Talks" मा तपाईंलाई यहाँ पाउनुहुनेछ:</p>
+            <div class="social-links">
+                <a href="https://youtube.com/c/ClassicTalks" target="_blank">
+                    <i class="fab fa-youtube"></i> Classic Talks
+                </a>
+            </div>
+            <div style="margin-top: 30px; text-align: center;">
+                <h3>हालैका भिडियोहरू</h3>
+                <!-- Placeholder for YouTube videos - you can add embed codes here -->
+                <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-top: 20px;">
+                    <div style="width: 300px; height: 200px; background: #eee; display: flex; justify-content: center; align-items: center;">
+                        [भिडियो १]
+                    </div>
+                    <div style="width: 300px; height: 200px; background: #eee; display: flex; justify-content: center; align-items: center;">
+                        [भिडियो २]
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="section">
+            <h2><i class="fas fa-envelope"></i> सम्पर्क गर्नुहोस्</h2>
+            <div class="social-links">
+                <a href="https://facebook.com/PushpaBamThakuri" target="_blank">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+                <a href="https://instagram.com/PushpaBamThakuri" target="_blank">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://youtube.com/c/ClassicTalks" target="_blank">
+                    <i class="fab fa-youtube"></i> YouTube
+                </a>
+                <a href="mailto:contact@pushpabamhaml.com">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+            </div>
+            <p style="text-align: center; margin-top: 20px;">
+                वेबसाइट: <a href="https://pushpabamhaml.com" target="_blank" style="color: var(--primary-color);">pushpabamhaml.com</a>
+            </p>
+        </section>
+    </div>
+    
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+    
+    <footer>
+        <p>© 2023 पुष्पा बम ठकुरी - Classic Talks. सर्वाधिकार सुरक्षित।</p>
+        <p>वेबसाइट: pushpabamhaml.com | YouTube: Classic Talks</p>
+    </footer>
+
+    <script>
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Search functionality (basic)
+        const searchButton = document.querySelector('.search-button');
+        searchButton.addEventListener('click', () => {
+            const searchTerm = document.querySelector('.search-input').value;
+            if (searchTerm.trim() !== '') {
+                alert(`तपाईंले "${searchTerm}" खोज्नुभयो। यो सुविधा विकास अधीनमा छ।`);
+            }
+        });
+    </script>
+</body>
+</html>
